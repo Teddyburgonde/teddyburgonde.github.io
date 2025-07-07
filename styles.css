@@ -1,11 +1,6 @@
 /* ----------- GLOBAL STYLES ----------- */
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
 body {
+	margin: 0;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	background: radial-gradient(circle at top left, #1e1e2f, #12121d);
 	color: white;
@@ -15,13 +10,12 @@ body {
 /* ----------- CONTAINER ----------- */
 .container {
 	perspective: 800px;
-	min-height: 100vh;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
+	justify-content: center;
 	align-items: center;
-	padding-top: 10rem;
-	margin-bottom: 4rem;
+	padding-top: 50px;
 }
 
 .main-content {
@@ -32,7 +26,7 @@ body {
 /* ----------- CLICK ME ----------- */
 .click-me-banner {
 	position: fixed;
-	top: 1vh;
+	top: 0.5vh;
 	left: 50%;
 	transform: translateX(-50%);
 	text-align: center;
@@ -40,7 +34,6 @@ body {
 	font-weight: bold;
 	z-index: 2000;
 	pointer-events: none;
-	line-height: 1.2;
 }
 
 .click-me-text {
@@ -68,30 +61,31 @@ body {
 
 .click-arrow {
 	font-size: 2rem;
-	margin-top: 0.3rem;
+	margin-top: 5px;
 	animation: bounce 1.5s infinite;
 }
 
 /* ----------- CUBE ----------- */
 .cube {
 	position: relative;
-	width: 12.5rem;
-	height: 12.5rem;
+	width: 200px; 
+	height: 200px;
 	transform-style: preserve-3d;
 	animation: cubeRotate 10s linear infinite;
-	margin-top: 0;
+	margin-top: 100px;
 	z-index: 1500;
 }
 
+.controls {
+	z-index: 1500;
+}
 
-
-/* ----------- FACES ----------- */
 .face {
 	position: absolute;
-	width: 12.5rem;
-	height: 12.5rem;
+	width: 200px;
+	height: 200px;
 	opacity: 0.9;
-	border: 0.125rem solid white;
+	border: 2px solid white;
 	cursor: pointer;
 	display: flex;
 	justify-content: center;
@@ -99,35 +93,36 @@ body {
 	font-size: 2rem;
 	color: white;
 	text-decoration: none;
-	box-shadow: 0 0 0.9375rem rgba(255, 255, 255, 0.2);
-	backdrop-filter: blur(0.25rem);
-	border-radius: 0.625rem;
+	box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+	backdrop-filter: blur(4px);
+	border-radius: 10px;
 }
 
-.front  { transform: translateZ(6.25rem); background: #ff4b2b; }
-.back   { transform: translateZ(-6.25rem) rotateY(180deg); background: #9b59b6; }
-.left   { transform: rotateY(90deg) translateZ(6.25rem); background: #2ecc71; }
-.right  { transform: rotateY(-90deg) translateZ(6.25rem); background: #3498db; }
-.top    { transform: rotateX(90deg) translateZ(6.25rem); background: #f39c12; }
-.bottom { transform: rotateX(-90deg) translateZ(6.25rem); background: #e74c3c; }
+.front  { transform: translateZ(100px); background: #ff4b2b; }
+.back   { transform: translateZ(-100px) rotateY(180deg); background: #9b59b6; }
+.left   { transform: rotateY(90deg) translateZ(100px); background: #2ecc71; }
+.right  { transform: rotateY(-90deg) translateZ(100px); background: #3498db; }
+.top    { transform: rotateX(90deg) translateZ(100px); background: #f39c12; }
+.bottom { transform: rotateX(-90deg) translateZ(100px); background: #e74c3c; }
 
 /* ----------- BUTTON / CONTROLS ----------- */
-
 .controls {
-	z-index: 1500;
-	margin-top: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 90px;
 }
 
 #toggle-rotation {
-	padding: 0.75rem 1.5rem;
+	padding: 12px 25px;
 	font-size: 1rem;
 	background: linear-gradient(to right, #4facfe, #00f2fe);
 	color: white;
 	border: none;
-	border-radius: 1.5625rem;
+	border-radius: 25px;
 	cursor: pointer;
 	transition: all 0.3s ease;
-	box-shadow: 0 0 0.625rem rgba(0, 242, 254, 0.4);
+	box-shadow: 0 0 10px rgba(0, 242, 254, 0.4);
 }
 
 #toggle-rotation:hover {
@@ -136,7 +131,7 @@ body {
 }
 
 #rotation-info {
-	margin-top: 0.625rem;
+	margin-top: 10px;
 	font-size: 0.95rem;
 	color: #ddd;
 	text-align: center;
@@ -151,16 +146,17 @@ body {
 	transform: translateX(-50%);
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: 1.25rem;
+	gap: 20px;
 	z-index: 1000;
 }
 
+
 .description-box {
 	background: rgba(255, 255, 255, 0.05);
-	backdrop-filter: blur(0.375rem);
-	border-radius: 0.75rem;
-	padding: 1rem 1.25rem;
-	box-shadow: 0 0 0.9375rem rgba(0, 0, 0, 0.4);
+	backdrop-filter: blur(6px);
+	border-radius: 12px;
+	padding: 15px 20px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 	font-size: 0.95rem;
 	line-height: 1.6;
 	color: #f0f0f0;
@@ -182,5 +178,5 @@ body {
 
 @keyframes bounce {
 	0%, 100% { transform: translateY(0); }
-	50% { transform: translateY(0.5rem); }
+	50% { transform: translateY(8px); }
 }
